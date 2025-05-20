@@ -30,7 +30,12 @@ Smartphone::Smartphone(string model, string manufacturer,
     this->storage = storage;
     this->cpu = cpu;
     this->os = os;
-    this->price = price;
+    if (price < 4000) {
+        cout << "Incorrect price value" << endl;
+        this->price = 0;
+    } else {
+        this->price = price;
+    }
     this->production_start = production_start;
     this->cameras_amount = cameras_amount;
     this->battery_capacity = battery_capacity;
@@ -63,5 +68,12 @@ int Smartphone::getBatteryCapacity() const {return battery_capacity;}
 
 bool Smartphone::getIsNFC() const {return nfc;}
 
-void Smartphone::setPrice(double price) {this->price = price;}
+void Smartphone::setPrice(double price) {
+    if (price < 4000) {
+        cout << "Incorrect price value" << endl;
+        this->price = 0;
+    } else {
+        this->price = price;
+    }
+}
 

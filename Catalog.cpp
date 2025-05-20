@@ -30,6 +30,16 @@ Smartphone Catalog::search(const Smartphone& searchSmartphone) {
         if (!cpu.empty() && cpu != s.getCPU()) continue;
         string os = searchSmartphone.getOS();
         if (!os.empty() && os != s.getOS()) continue;
+        double price = searchSmartphone.getPrice();
+        if (price > 0 && price != s.getPrice()) continue;
+        int production_start = searchSmartphone.getProductionStart();
+        if (production_start > 0 && production_start != s.getProductionStart()) continue;
+        int cameras_amount = searchSmartphone.getCamerasAmount();
+        if (cameras_amount > 0 && cameras_amount != s.getCamerasAmount()) continue;
+        int battery_capacity = searchSmartphone.getBatteryCapacity();
+        if (battery_capacity > 0 && battery_capacity != s.getBatteryCapacity()) continue;
+        bool nfc = searchSmartphone.getIsNFC();
+        if (nfc != s.getIsNFC()) continue;
         return s;
     } return Smartphone();
 }

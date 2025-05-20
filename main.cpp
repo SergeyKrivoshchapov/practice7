@@ -10,8 +10,8 @@ Catalog InitializeCatalog() {
 }
 int main(int argc, char* argv[]) {
     Catalog catalog = InitializeCatalog();
-    Smartphone whatBuyerLikes{"iPhone 12 Pro", "apple", "white",
-    "" , "", "", "", "ios", 0, 0, 0, 0, true};
+    Smartphone whatBuyerLikes{"iPhone 12 Pro", "Apple", "White",
+    "6" , "3", "64", "Apple", "iOS", 100, 2018, 4, 52, true};
     Smartphone smartphone = catalog.search(whatBuyerLikes);
     if (smartphone.getModel() != "") {
         cout << "You might like this: ";
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
         cout << "Production start year: " << smartphone.getProductionStart() << endl;
         cout << "Cameras amount: " << smartphone.getCamerasAmount() << endl;
         cout << "Battery capacity: " << smartphone.getBatteryCapacity() << endl;
-        cout << "NFC: " << (smartphone.getIsNFC()) ? "Yes" : "No" << endl;
+        cout << "NFC: " << (smartphone.getIsNFC() ? "Yes" : "No") << endl;
     }
     else cout << "Sorry, we have nothing for you.";
     return 0;

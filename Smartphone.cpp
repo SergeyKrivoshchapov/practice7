@@ -1,4 +1,8 @@
 #include "Smartphone.h"
+
+#include <iostream>
+#include <bits/ostream.tcc>
+
 Smartphone::Smartphone() {
     this->model = "";
     this->price = 0;
@@ -12,12 +16,12 @@ Smartphone::Smartphone() {
     this->production_start = 0;
     this->cameras_amount = 0;
     this->battery_capacity = 0;
-    this->nfc = nfc;
+    this->nfc = false;
 }
 Smartphone::Smartphone(string model, string manufacturer,
-string color, string display, string ram,
-string storage, string cpu, string os, double price,
-int production_start, int cameras_amount, int battery_capacity, bool nfc) {
+                       string color, string display, string ram,
+                       string storage, string cpu, string os, double price,
+                       int production_start, int cameras_amount, int battery_capacity, bool nfc) {
     this->model = model;
     this->manufacturer = manufacturer;
     this->color = color;

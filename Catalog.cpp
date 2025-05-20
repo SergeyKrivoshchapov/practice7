@@ -1,4 +1,6 @@
 #include "Catalog.h"
+#include <algorithm>
+#include <cctype>
 void Catalog::addSmartphone(string model, string manufacturer,
 string color, double display, int ram,
 int storage, string cpu, string os, double price, int production_start,
@@ -12,14 +14,17 @@ Smartphone Catalog::getSmartphone(string model) {
         if (s.getModel() == model) return s;
     } return Smartphone();
 }
+bool compareStrings(const string &a, const string &b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end(), [](char c1, char c2) { return std::tolower(c1) == std::tolower(c2); });
+}
 Smartphone Catalog::search(const Smartphone& searchSmartphone) {
-    for (Smartphone s : smartphones) {
+    for (Smartphone& s : smartphones) {
         string model = searchSmartphone.getModel();
-        if (!model.empty() && model != s.getModel()) continue;
+        if (!model.empty() && !compareStrings(model, s.getModel())) continue;
         string manufacturer = searchSmartphone.getManufacturer();
-        if (!manufacturer.empty() && manufacturer != s.getManufacturer()) continue;
+        if (!manufacturer.empty() && !compareStrings(manufacturer, s.getManufacturer())) continue;
         string color = searchSmartphone.getColor();
-        if (!color.empty() && color != s.getColor()) continue;
+        if (!color.empty() && !compareStrings(color, s.getColor())) continue;
         double display = searchSmartphone.getDisplay();
         if (display > 0 && display != s.getDisplay()) continue;
         int ram = searchSmartphone.getRAM();
@@ -27,9 +32,9 @@ Smartphone Catalog::search(const Smartphone& searchSmartphone) {
         int storage = searchSmartphone.getStorage();
         if (storage > 0 && storage != s.getStorage()) continue;
         string cpu = searchSmartphone.getCPU();
-        if (!cpu.empty() && cpu != s.getCPU()) continue;
+        if (!cpu.empty() && !compareStrings(cpu, s.getCPU())) continue;
         string os = searchSmartphone.getOS();
-        if (!os.empty() && os != s.getOS()) continue;
+        if (!os.empty() && compareStrings(os, s.getOS())) continue;
         double price = searchSmartphone.getPrice();
         if (price > 0 && price != s.getPrice()) continue;
         int production_start = searchSmartphone.getProductionStart();

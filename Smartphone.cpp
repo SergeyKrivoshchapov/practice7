@@ -8,9 +8,9 @@ Smartphone::Smartphone() {
     this->price = 0;
     this->manufacturer = "";
     this->color = "";
-    this->display = "";
-    this->ram = "";
-    this->storage = "";
+    this->display = 0;
+    this->ram = 0;
+    this->storage = 0;
     this->cpu = "";
     this->os = "";
     this->production_start = 0;
@@ -19,15 +19,30 @@ Smartphone::Smartphone() {
     this->nfc = false;
 }
 Smartphone::Smartphone(string model, string manufacturer,
-                       string color, string display, string ram,
-                       string storage, string cpu, string os, double price,
+                       string color, double display, int ram,
+                       int storage, string cpu, string os, double price,
                        int production_start, int cameras_amount, int battery_capacity, bool nfc) {
     this->model = model;
     this->manufacturer = manufacturer;
     this->color = color;
-    this->display = display;
-    this->ram = ram;
-    this->storage = storage;
+    if (display < 6) {
+        cout << "Incorrect display value" << endl;
+        this->display = 0;
+    } else {
+        this->display = display;
+    }
+    if (ram < 2) {
+        cout << "Incorrect ram value" << endl;
+        this->ram = 0;
+    } else {
+        this->ram = ram;
+    }
+    if (storage < 8) {
+        cout << "Incorrect storage value" << endl;
+        this->storage = 0;
+    } else {
+        this->storage = storage;
+    }
     this->cpu = cpu;
     this->os = os;
     if (price < 4000) {
@@ -36,9 +51,24 @@ Smartphone::Smartphone(string model, string manufacturer,
     } else {
         this->price = price;
     }
-    this->production_start = production_start;
-    this->cameras_amount = cameras_amount;
-    this->battery_capacity = battery_capacity;
+    if (production_start < 1994) {
+        cout << "Incorrect production start value" << endl;
+        this->production_start = 0;
+    } else {
+        this->production_start = production_start;
+    }
+    if (cameras_amount < 0) {
+        cout << "Incorrect cameras amount" << endl;
+        this->cameras_amount = 0;
+    } else {
+        this->cameras_amount = cameras_amount;
+    }
+    if (battery_capacity < 4000) {
+        cout << "Incorrect battery capacity value" << endl;
+        this->battery_capacity = 0;
+    } else {
+        this->battery_capacity = battery_capacity;
+    }
     this->nfc = nfc;
 
 }
@@ -48,11 +78,11 @@ string Smartphone::getManufacturer() const {return manufacturer;}
 
 string Smartphone::getColor() const {return color;}
 
-string Smartphone::getDisplay() const {return display;}
+double Smartphone::getDisplay() const {return display;}
 
-string Smartphone::getRAM() const {return ram;}
+int Smartphone::getRAM() const {return ram;}
 
-string Smartphone::getStorage() const {return storage;}
+int Smartphone::getStorage() const {return storage;}
 
 string Smartphone::getCPU() const {return cpu;}
 

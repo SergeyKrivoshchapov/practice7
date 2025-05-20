@@ -1,7 +1,7 @@
 #include "Catalog.h"
 void Catalog::addSmartphone(string model, string manufacturer,
-string color, string display, string ram,
-string storage, string cpu, string os, double price, int production_start,
+string color, double display, int ram,
+int storage, string cpu, string os, double price, int production_start,
 int cameras_amount, int battery_capacity, bool nfc) {
     smartphones.push_back(Smartphone{ model, manufacturer,
     color, display, ram,
@@ -20,12 +20,12 @@ Smartphone Catalog::search(const Smartphone& searchSmartphone) {
         if (!manufacturer.empty() && manufacturer != s.getManufacturer()) continue;
         string color = searchSmartphone.getColor();
         if (!color.empty() && color != s.getColor()) continue;
-        string display = searchSmartphone.getDisplay();
-        if (!display.empty() && display != s.getDisplay()) continue;
-        string ram = searchSmartphone.getRAM();
-        if (!ram.empty() && ram != s.getRAM()) continue;
-        string storage = searchSmartphone.getStorage();
-        if (!storage.empty() && storage != s.getStorage()) continue;
+        double display = searchSmartphone.getDisplay();
+        if (display > 0 && display != s.getDisplay()) continue;
+        int ram = searchSmartphone.getRAM();
+        if (ram > 0 && ram != s.getRAM()) continue;
+        int storage = searchSmartphone.getStorage();
+        if (storage > 0 && storage != s.getStorage()) continue;
         string cpu = searchSmartphone.getCPU();
         if (!cpu.empty() && cpu != s.getCPU()) continue;
         string os = searchSmartphone.getOS();

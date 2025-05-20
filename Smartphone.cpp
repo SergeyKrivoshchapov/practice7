@@ -72,6 +72,29 @@ Smartphone::Smartphone(string model, string manufacturer,
     this->nfc = nfc;
 
 }
+
+void Smartphone::print() const {
+    if (model.empty()) {
+        cout << "Sorry, we have nothing for you." << endl;
+        return;
+    }
+
+    cout << "You might like this: ";
+    cout << manufacturer << " " << model << endl;
+    cout << "Price: " << price << endl;
+    cout << "Color: " << color << endl;
+    cout << "Display: " << display << endl;
+    cout << "OS: " << os << endl;
+    cout << ram << "Gb RAM, " << storage << " GB storage" << endl;
+    cout << "CPU: " << cpu << endl;
+    cout << "Production start year: " << production_start << endl;
+    cout << "Cameras amount: " << cameras_amount << endl;
+    cout << "Battery capacity: " << battery_capacity << endl;
+    cout << "NFC: " << (nfc ? "Yes" : "No") << endl;
+}
+
+string Smartphone::getOS() const {return os;}
+
 string Smartphone::getModel() const {return model;}
 
 string Smartphone::getManufacturer() const {return manufacturer;}
@@ -85,8 +108,6 @@ int Smartphone::getRAM() const {return ram;}
 int Smartphone::getStorage() const {return storage;}
 
 string Smartphone::getCPU() const {return cpu;}
-
-string Smartphone::getOS() const {return os;}
 
 double Smartphone::getPrice() const {return price;}
 

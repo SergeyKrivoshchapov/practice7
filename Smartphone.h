@@ -15,6 +15,7 @@ public:
                int production_start, int cameras_amount, int battery_capacity,
                bool nfc);
 
+    void print() const;
     string getOS() const;
     string getModel() const;
     string getManufacturer() const;

@@ -1,11 +1,11 @@
 #pragma once
 #include<string>
-#include<vector>
+#include<list>
 #include"Smartphone.h"
 using namespace std;
 class Catalog {
 private:
-    vector<Smartphone> smartphones;
+    list<Smartphone> smartphones;
 public:
     void addSmartphone(string model, string manufacturer,
     string color, double display, int ram,

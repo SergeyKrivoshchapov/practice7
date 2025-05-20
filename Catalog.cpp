@@ -10,7 +10,7 @@ int cameras_amount, int battery_capacity, bool nfc) {
     storage, cpu, os, price, production_start, cameras_amount, battery_capacity, nfc } );
 }
 Smartphone Catalog::getSmartphone(string model) {
-    for (Smartphone s : smartphones) {
+    for (const Smartphone& s : smartphones) {
         if (s.getModel() == model) return s;
     } return Smartphone();
 }
@@ -18,7 +18,7 @@ bool compareStrings(const string &a, const string &b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end(), [](char c1, char c2) { return std::tolower(c1) == std::tolower(c2); });
 }
 Smartphone Catalog::search(const Smartphone& searchSmartphone) {
-    for (Smartphone& s : smartphones) {
+    for (const Smartphone& s : smartphones) {
         string model = searchSmartphone.getModel();
         if (!model.empty() && !compareStrings(model, s.getModel())) continue;
         string manufacturer = searchSmartphone.getManufacturer();

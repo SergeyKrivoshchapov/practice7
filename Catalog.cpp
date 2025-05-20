@@ -34,7 +34,7 @@ Smartphone Catalog::search(const Smartphone& searchSmartphone) {
         string cpu = searchSmartphone.getCPU();
         if (!cpu.empty() && !compareStrings(cpu, s.getCPU())) continue;
         string os = searchSmartphone.getOS();
-        if (!os.empty() && compareStrings(os, s.getOS())) continue;
+        if (!os.empty() && !compareStrings(os, s.getOS())) continue;
         double price = searchSmartphone.getPrice();
         if (price > 0 && price != s.getPrice()) continue;
         int production_start = searchSmartphone.getProductionStart();

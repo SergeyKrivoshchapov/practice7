@@ -2,12 +2,17 @@
 #include <algorithm>
 #include <cctype>
 void Catalog::addSmartphone(string model, string manufacturer,
-string color, double display, int ram,
-int storage, string cpu, string os, double price, int production_start,
-int cameras_amount, int battery_capacity, bool nfc) {
+    string color, double display, int ram,
+    int storage, string cpu, string os, double price, int production_start,
+    int cameras_amount, int battery_capacity, bool nfc)
+{
     smartphones.push_back(Smartphone{ model, manufacturer,
     color, display, ram,
     storage, cpu, os, price, production_start, cameras_amount, battery_capacity, nfc } );
+}
+
+void Catalog::addSmartphone(const Smartphone& smartphone) {
+    smartphones.push_back(smartphone);
 }
 Smartphone Catalog::getSmartphone(string model) {
     for (const Smartphone& s : smartphones) {

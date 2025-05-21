@@ -9,8 +9,9 @@ private:
 public:
     void addSmartphone(string model, string manufacturer,
     string color, double display, int ram,
-    int storage, string cpu, string os, double price,
-    int production_start, int cameras_amount, int battery_capacity, bool nfc);
+    int storage, string cpu, string os, double price, int production_start,
+    int cameras_amount, int battery_capacity, bool nfc);
+    void addSmartphone(const Smartphone& smartphone);
     Smartphone getSmartphone(string model);
     Smartphone search(const Smartphone& searchSmartphone);
 };

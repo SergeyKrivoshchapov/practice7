@@ -53,3 +53,12 @@ Smartphone Catalog::search(const Smartphone& searchSmartphone) {
         return s;
     } return Smartphone();
 }
+
+Smartphone Catalog::search(const string& model, const string& manufacturer, double price) {
+    for (const Smartphone& s : smartphones) {
+        if ((model.empty() || compareStrings(model, s.getModel())) &&
+            (manufacturer.empty() || compareStrings(manufacturer, s.getManufacturer())) &&
+            (price <= 0 || s.getPrice() <= price)) return s;
+    }
+    return Smartphone();
+}

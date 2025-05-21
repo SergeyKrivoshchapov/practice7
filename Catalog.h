@@ -14,6 +14,7 @@ public:
     void addSmartphone(const Smartphone& smartphone);
     Smartphone getSmartphone(string model);
     Smartphone search(const Smartphone& searchSmartphone);
+    Smartphone search(const string& model, const string& manufacturer, double price);
 };
 
 

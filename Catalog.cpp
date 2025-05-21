@@ -62,3 +62,9 @@ Smartphone Catalog::search(const string& model, const string& manufacturer, doub
     }
     return Smartphone();
 }
+
+vector<Smartphone> Catalog::searchByRAM(int minRAM, int maxRAM) {
+    vector<Smartphone> found;
+    for (const Smartphone& s : smartphones) if (s.getRAM() >= minRAM && s.getRAM() <= maxRAM) found.push_back(s);
+    return found;
+}

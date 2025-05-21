@@ -1,6 +1,8 @@
 #pragma once
 #include<string>
 #include<list>
+#include <vector>
+
 #include"Smartphone.h"
 using namespace std;
 class Catalog {
@@ -15,6 +17,7 @@ public:
     Smartphone getSmartphone(string model);
     Smartphone search(const Smartphone& searchSmartphone);
     Smartphone search(const string& model, const string& manufacturer, double price);
+    vector <Smartphone> searchByRAM(int minRAM, int maxRAM);
 };
 
 
